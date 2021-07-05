@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plain HTML</title>
+</head>
+<body>
+    <header>
+        <h1>Plain HTML</h1>
+    </header>
+
+    <article>
+        <p>These are the coolest things you can do with pure HTML - without any CSS or JavaScript.</p>
+        
+        <section>
+            <h2>Basics</h2>
+            <p>HTML lets you divide your content into blocks or inline elements.<br>
+            The text in these elements can be edited like so:</p>
+            <ul>
+                <li><strong>strong</strong></li>
+                <li><s>strikethrough</s></li>
+                <li><u>underline</u></li>
+                <li><mark>mark</mark></li>
+                <li><code>code</code></li>
+                <li>...</li>
+            </ul>
+            <p>It also lets you make tables like so: (but they are really impractical without CSS)</p>
+            <blockquote>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fruits &nbsp vs.</th>
+                            <th>Veggies</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>mango</td>
+                            <td>spinache</td>
+                        </tr>
+                        <tr>
+                            <td>banana</td>
+                            <td>tomatoes</td>
+                        </tr>
+                    </tbody>
+                </table>                
+            </blockquote>
+        </section>
+
+        <br>
+
+        <section>
+            <h2>Interactive stuff</h2>
+            <p>The <code>&lt;form&gt;</code> element is a container for different types of <code>&lt;input&gt;</code> elements, such as: text fields, checkboxes, radio buttons, submit buttons, etc.
+            <br> Forms can be used to perform HTTP requests.</p>
+
+            <details><summary>Forms</summary>
+                <p>If used without JavaScript then the default behaviour is to send a post request to a page called /action_page.php with the query .../action_page.php?fname=John&lname=Doe. </p>
+                <form action="/action_page.php" method = "POST"> <!-- uses POST request for HTTP -->
+                    <label for="fname">First name:</label><br>
+                    <input type="text" id="fname" name="fname" value="John"><br>
+                    <label for="lname">Last name:</label><br>
+                    <input type="text" id="lname" name="lname" value="Doe"><br><br>
+                    <input type="submit" value="Submit">
+                </form>
+                <br>
+            </details>
+
+            <details><summary>Inputs used in forms</summary>
+                <ul>
+                    <li>option, optgroup</li>
+                    <li>button</li>
+                    <li>texarea</li>
+                    <li>checkbox</li>
+                    <li>range</li>
+                    <li>date</li>
+                    <li>text</li>
+                    <li>... and many more</li>
+                </ul>
+
+            </details>
+
+            <details><summary>Hyperlinks</summary>
+                <a href="https://www.wikipedia.org">open wikipedia here</a> <br>
+                <a href="https://www.wikipedia.org" target="_blank" rel="noopener noreferrer">open wikipedia in new tab</a>
+            </details>
+        </section>
+    </article>
+    
+    <footer>
+        <br>
+        <br>
+        <br>
+        <hr>
+        <p>Thats basically as far as you can go with pure HTML, you could also embed videos and images or iFrames and there is a lot more to it.</p>
+        <p>But all of this could also have been done with a markdown file.</p>
+    </footer>
+</body>
+</html>
