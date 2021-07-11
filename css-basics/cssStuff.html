@@ -9,11 +9,26 @@
 </head>
 
 <body>
-    <header>
+
+    <header style="
+        position: -webkit-sticky; /* Safari */
+        position: sticky;
+        top: 0;
+        border-bottom: solid black 1px;
+    ">
         <p> Hello world! </p>
     </header>
     
     <article>
+
+        <div class="position-box" style="
+            z-index: -1;
+        ">
+            <h1>Cascading Style Sheets</h1>
+            <h3>are my passion</h3>
+            <img src="../images/29e.jpg" alt="frog">
+        </div>
+
         <div class="container">
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis veniam sit enim iste, est error! Sapiente iste molestiae quo consectetur, dolorem quasi ab facere ipsa sit minus, maiores, totam libero!</p>
             <p style="margin-bottom: 0.5em;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam excepturi impedit aliquid molestias sed nihil perferendis obcaecati ducimus enim distinctio saepe perspiciatis fugit, quam culpa nam quaerat in. Harum, facilis.</p>
@@ -81,13 +96,8 @@
 
         <div style="clear: both;"></div> <!--Clears floats above this-->
 
-        <div class="position-box">
-            <h1>Cascading Style Sheets</h1>
-            <h3>are my passion</h3>
-            <img src="../images/29e.jpg" alt="frog">
-        </div>
     </article>
-
+    
     <a class="fix-me" href="https://www.twitter.com">
         <div>
             <span>Share</span>
@@ -95,6 +105,5 @@
             style="width:15px; height:15px;">
         </div>
     </a>
-
 </body>
 </html>
