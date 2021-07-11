@@ -1,0 +1,201 @@
+
+/*global variable*/
+:root {
+    --alarm-color:	rgb(255,0,0);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /*Background*/
+    background-image: url("../favicon.svg");    
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+header {
+    /*Text and fonts*/
+    background-color: blanchedalmond;
+    color: #000;
+    font-family: monospace;
+    font-size: xx-large;
+    font-weight: normal;
+    line-height: 1.4em;
+    text-align: center;
+
+    letter-spacing: 0.12em;
+    word-spacing: 0;
+}
+
+/*lorem ipsum text*/
+.container {
+    /*box model*/
+    background-color: blanchedalmond;
+    width: 80%;
+    margin: 1em auto;
+}
+
+/*hover box*/
+.box {
+    /*box model*/
+    color: black;
+    background-color: pink;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+
+    margin: 2em;
+    padding: 0.1em;
+    border: 2px black solid;
+    border-radius: 5em;
+
+    margin: auto;
+    width: 17%;
+    overflow: auto;
+}
+
+/*short list*/
+.list {
+    background-color: blanchedalmond;        
+    width: 80%; /*of content*/
+    margin: 1em auto;
+    padding-bottom: 1em;
+}
+
+.list li {
+    list-style: none;
+    padding-left: 0.3em;
+    padding-top: 0.1em;
+    margin-left: 0.8em;
+}
+
+.list li:before {
+    content: "👉";
+    margin: 0 1px 0 0;
+}
+
+a {
+    /*remove visible hyperlink tag*/
+    color: #000;
+    text-decoration: none;
+}
+
+/*pseudo classes*/
+.box:hover{      
+    transform: scale(1.5);
+}
+
+.box:active{
+    color: rosybrown;
+}
+
+form {
+    padding-top: 0.2em;
+    padding-left: 1em;
+}
+
+.form-group{
+    display: block;
+    padding-bottom: 0.4em;
+}
+
+.my-form label {
+    display: block;
+}
+
+.my-form input[type="text"], .my-form textarea {
+    width: 95%;
+}
+
+.button {
+    background-color: #333;
+    color: #fff;
+    padding: 5px 15px;
+    margin-bottom: 1em;
+    border: none;
+}
+
+.button:hover{
+    background-color: #ccc;
+}
+
+.block {
+    background-color: blanchedalmond;
+    float: right;
+    width: 25%;
+
+    box-sizing: border-box;
+    padding: 1em;
+}
+
+.block > h4 {
+    padding-bottom: 0.4em;
+}
+
+#main-block {
+    background-color: blanchedalmond;
+    float: right;
+    width: 75%;
+
+    box-sizing: border-box;
+    padding: 1em;
+}
+
+#sidebar {
+    background-color: blanchedalmond;
+    float: left;
+    width: 25%;
+
+    box-sizing: border-box;
+    padding: 1em;
+}
+
+/*Positioning*/
+.position-box {
+    border: solid 1px black;
+    width: 80%;
+    height: 20em;
+    background-color: #fff;
+    margin: 1em auto;
+    position: relative; /*enables absolute positioning inside it*/
+
+    color: red;
+    background-image: url('../images/bg.webp');
+    background-repeat: no-repeat;
+}
+
+.position-box h1 {
+    font-family: Papyrus, fantasy; font-size: 24px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px; 
+    position: absolute;
+    bottom: 25%;
+    left: 7%;
+}
+
+.position-box h3 {
+    font-family: Papyrus, fantasy; font-size: 32px; font-style: normal; font-variant: normal; font-weight: 500; line-height: 15.4px;
+    position: absolute;
+    bottom: 15%;
+    right: 20%;
+}
+
+.position-box img {
+    width: 20%;
+    position: absolute;
+    right: 15%;
+    top: 20%;
+}
+
+.fix-me {
+    background: paleturquoise;
+    border-radius: 0 30px 30px 0;
+    padding: 1em;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    position: fixed;
+    bottom: 40px;
+    left: 0;
+}
