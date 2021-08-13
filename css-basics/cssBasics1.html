@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Basics 1</title>
+</head>
+
+<style>
+    * {
+        --max-width: 65%;
+        font-family: Arial, Helvetica, sans-serif;
+
+        /*reset*/
+        padding: 0;
+        margin: 0;
+        border: none;
+    }
+
+    .mono { font-family:'Courier New', Courier, monospace;}
+    h3 { padding-bottom: 0.3em;}
+
+    .title {
+        font-size: 2rem;
+        color: pink;
+        background-color: black;
+
+        text-align: center;
+        border-color: pink;
+        border-style: solid;
+        border-width: 0 0 0.14em 0;
+    }
+
+    #cat-image {
+        border-radius:50%;
+        border-style: dotted;
+        border-width: 0.1em;
+        width: 10%;
+        display: block; /*to center, it must first be turned to a div*/
+        margin: 0.5rem auto 0 auto;
+    }
+
+    @media (max-width: 500px) {
+        .title {
+            color: green;
+            border-color: green;
+        }
+    }
+
+    .centered-text {
+        width: var(--max-width);
+        margin-top: 2em;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        left: -1rem;
+    }
+
+    .parent {
+        padding: 1%;
+        background-color: #eee;
+        width: var(--max-width);
+        margin: 0.5rem auto 0.5rem auto;
+    }
+
+    .child {
+        padding: 0.5%;
+    }
+
+    .child-one {
+        background-color: #00AAFF;
+    }   
+
+    .child-two {
+        background-color: rgb(248, 117, 117);
+    }
+
+    .child-three {
+        background-color: rgb(255, 116, 232);
+    }
+
+    .child-four {
+        background-color: rgb(116, 255, 116);
+    }
+
+    .child-five {
+        background-color: lightpink;
+    }
+</style>
+
+<body>
+    <header>
+        <h1 class="title mono"> layouting cowboy kitten</h2>
+    </header>
+    <main>
+        <img id="cat-image" src="../images/kitten.webp" alt="An adorable cowboy cat">
+        
+        <div class="centered-text">
+            <h3 class="mono">position: relative</h3>
+            Possible in normal flow layout. <br>
+            Not used for layouting in general but rather to adjust positions.
+        </div>
+        
+        <div class="parent centered"> Parent
+            <div class="child-one child" style="width: 40%;">One</div>
+            <div class="child-two child" style="width: 40%; position: relative; left: 4%;">Two</div>
+            <div class="child-three child" style="width: 40%; position: relative; left: 7%;">Three</div>
+        </div>
+
+        <div class="centered-text">
+            <h3 class="mono" >float</h3>
+            Normal flow layout: float. <br>
+            Allows text flow by the left or right side - or prevents so through the <span class="mono">clear</span> attribute. <br>
+            Can only be used meaningfully with <span class="mono">box-sizing: border-box;</span>. <br>
+            But in general it's sort of janky and was not meant to be used for layouting
+            <span>(as explained <a href="https://www.youtube.com/watch?v=R7gqJkdc5dM">here</a>).</span>
+        </div>
+        <div class="parent" style="padding-bottom: 3rem;">
+            <div class="child-one child" style="width: 25%; float: left; box-sizing: border-box;">One</div>
+            <div class="child-two child" style="width: 25%; float: left; box-sizing: border-box;">Two</div>
+            <div class="child-three child" style="width: 25%; float: left; box-sizing: border-box;">Three</div>
+            <div class="child-four child" style="width: 25%; float: left; box-sizing: border-box;">Four</div>
+        </div>
+        <div class="parent" style="padding-bottom: 5rem;">
+            <div class="child-one child" style="width: 25%; float: left; box-sizing: border-box;">One</div>
+            <div class="child-two child" style="width: 25%; float: left; box-sizing: border-box;">Two</div>
+            <div class="child-three child" style="width: 25%; float: left; clear: left; box-sizing: border-box;">Three</div> <!--clear: left -->
+            <div class="child-four child" style="width: 25%; float: left; box-sizing: border-box;">Four</div>
+        </div>
+        <div class="parent" style="margin-left: 16.5%; margin-right: 1em; width: 2em; height: 2em; float: left;"> Left Box </div>
+        <div class="parent" style="margin-right: 16.5%; margin-left: 1em; width: 2em; height: 2em; float: right;"> Right Box </div>
+        <div style="margin-top: 1.5em; margin-bottom: 3.5em; color: #ccc;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt architecto quas deleniti tempora nesciunt doloribus, tempore dignissimos fugit illum quidem dolore atque ipsa nihil iure.</div>
+
+        <div class="centered-text">
+            <h3 class="mono" >display: flex</h3>
+            asdasdasdads
+        </div>
+
+        <div class="centered-text">
+            <h3 class="mono" >display: grid</h3>
+            asdasdas
+        </div>
+
+    </main>
+</body>
+</html>
