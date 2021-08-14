@@ -1,1 +1,1 @@
-Check out my mini projects to practice web design [here](https://sueszli.github.io/web-stuff/)!
+Check this repo out [here](https://sueszli.github.io/web-stuff/)!
