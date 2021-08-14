@@ -32,7 +32,7 @@
         border-width: 0 0 0.14em 0;
     }
 
-    #cat-image {
+    img {
         border-radius:50%;
         border-style: dotted;
         border-width: 0.1em;
@@ -40,6 +40,12 @@
         display: block; /*to center, it must first be turned to a div*/
         margin: 0.5rem auto 0 auto;
     }
+    
+    iframe {
+        display: block; /*to center, it must first be turned to a div*/
+        margin: 0.5rem auto 0 auto;
+    }
+
 
     @media (max-width: 500px) {
         .title {
@@ -50,7 +56,15 @@
 
     .centered-text {
         width: var(--max-width);
-        margin-top: 2em;
+        margin-top: 5em;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        left: -1rem;
+    }
+
+    .centered-comment {
+        width: var(--max-width);
         margin-left: auto;
         margin-right: auto;
         position: relative;
@@ -91,30 +105,36 @@
 
 <body>
     <header>
-        <h1 class="title mono"> layouting cowboy kitten</h2>
+        <h1 class="title mono"> layouting basics</h2>
     </header>
     <main>
-        <img id="cat-image" src="../images/kitten.webp" alt="An adorable cowboy cat">
-        
+        <img src="../images/kitten.webp" alt="An adorable cowboy cat">
+        <div class="centered-comment"> <br>Howdy sheriff - join me on my quest of figuring out these CSS-layouting techniques.
+        But first take a look at this short video</a> about the history and development of layouting in CSS.</div>
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/R7gqJkdc5dM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+        <!--relative positioning-->
         <div class="centered-text">
             <h3 class="mono">position: relative</h3>
             Possible in normal flow layout. <br>
             Not used for layouting in general but rather to adjust positions.
         </div>
-        
-        <div class="parent centered"> Parent
+        <div class="parent centered">
             <div class="child-one child" style="width: 40%;">One</div>
             <div class="child-two child" style="width: 40%; position: relative; left: 4%;">Two</div>
             <div class="child-three child" style="width: 40%; position: relative; left: 7%;">Three</div>
         </div>
 
+
+
+        <!--float-->
         <div class="centered-text">
             <h3 class="mono" >float</h3>
             Normal flow layout: float. <br>
             Allows text flow by the left or right side - or prevents so through the <span class="mono">clear</span> attribute. <br>
             Can only be used meaningfully with <span class="mono">box-sizing: border-box;</span>. <br>
-            But in general it's sort of janky and was not meant to be used for layouting
-            <span>(as explained <a href="https://www.youtube.com/watch?v=R7gqJkdc5dM">here</a>).</span>
+            But in general it's sort of janky and was not meant to be used for layouting.</span>
         </div>
         <div class="parent" style="padding-bottom: 3rem;">
             <div class="child-one child" style="width: 25%; float: left; box-sizing: border-box;">One</div>
@@ -130,18 +150,165 @@
         </div>
         <div class="parent" style="margin-left: 16.5%; margin-right: 1em; width: 2em; height: 2em; float: left;"> Left Box </div>
         <div class="parent" style="margin-right: 16.5%; margin-left: 1em; width: 2em; height: 2em; float: right;"> Right Box </div>
-        <div style="margin-top: 1.5em; margin-bottom: 3.5em; color: #ccc;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt architecto quas deleniti tempora nesciunt doloribus, tempore dignissimos fugit illum quidem dolore atque ipsa nihil iure.</div>
+        <div style="margin-top: 1.5em; margin-bottom: 3.5em; color: #ccc;">
+            <span style="background-color: #eee; color: #ccc;">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt architecto quas deleniti tempora nesciunt doloribus, tempore dignissimos fugit illum quidem dolore atque ipsa nihil.
+            </span> <br> <br> <br>
+        </div>
 
+
+        <!--flexbox-->
         <div class="centered-text">
             <h3 class="mono" >display: flex</h3>
-            asdasdasdads
+            Based on the flexbox model.
         </div>
 
+        <div class="centered-comment" style="margin-top: 0.5em;">
+            Only using <span class="mono">display: flex;</span> in the parent container:
+        </div>
+        <div class="parent" style="display: flex;">
+            <div class="child-one child">One</div>
+            <div class="child-two child">Two</div>
+            <div class="child-three child">Three</div>
+            <div class="child-four child">Four (automatically adapts to additional text)</div>
+            <div class="child-five child">Five</div>
+        </div>
+        
+        <div class="centered-comment" style="margin-top: 0.5em;">
+            Using <span class="mono">flex</span> and <span class="mono">order</span> in the children:
+        </div>
+        <div class="parent" style="display: flex;">
+            <div class="child-one child" style="order: 3; flex: 1;">One</div>
+            <div class="child-two child" style="order: 1; flex: 2;">Two</div>
+            <div class="child-three child" style="order: 2; flex: 1;">Three</div>
+            <div class="child-four child" style="order: 5; flex: 2;">Four</div>
+            <div class="child-five child" style="order: 4; flex: 1;">Five</div>
+        </div>
+
+        <div class="centered-comment" style="margin-top: 0.5em;">
+            Using <span class="mono">align-self</span> in the children:
+        </div>
+        <div class="parent" style="display: flex;">
+            <div class="child-one child" style="width: 3em; height: 3em;">One</div>
+            <div class="child-two child" style="width: 3em; height: 3em;">Two</div>
+            <div class="child-three child" style="width: 3em; height: 1em; align-self: center;">Three</div>
+            <div class="child-four child" style="width: 3em; height: 3em;">Four</div>
+            <div class="child-five child" style="width: 3em; height: 3em;">Five</div>
+        </div>
+
+        <div class="centered-comment" style="margin-top: 0.5em;">
+            Using <span class="mono">justify-content</span> and <span class="mono">space-between</span>:
+        </div>
+        <div class="parent" style="display: flex; justify-content: space-between;">
+            <div class="child-one child" style="width: 2.5em; height: 2.5em;">One</div>
+            <div class="child-two child" style="width: 2.5em; height: 2.5em;">Two</div>
+            <div class="child-three child" style="width: 2.5em; height: 2.5em;">Three</div>
+            <div class="child-four child" style="width: 2.5em; height: 2.5em;">Four</div>
+            <div class="child-five child" style="width: 2.5em; height: 2.5em;">Five</div>
+        </div>
+        <div class="centered-comment" style="margin-top: 0.5em;">
+            Using <span class="mono">justify-content</span> and <span class="mono">space-around</span>:
+        </div>
+        <div class="parent" style="display: flex; justify-content: space-around;">
+            <div class="child-one child" style="width: 2.5em; height: 2.5em;">One</div>
+            <div class="child-two child" style="width: 2.5em; height: 2.5em;">Two</div>
+            <div class="child-three child" style="width: 2.5em; height: 2.5em;">Three</div>
+            <div class="child-four child" style="width: 2.5em; height: 2.5em;">Four</div>
+            <div class="child-five child" style="width: 2.5em; height: 2.5em;">Five</div>
+        </div>
+        <div class="centered-comment" style="margin-top: 0.5em;">
+            Using <span class="mono">justify-content</span> and <span class="mono">space-evenly</span>:
+        </div>
+        <div class="parent" style="display: flex; justify-content: space-evenly;">
+            <div class="child-one child" style="width: 2.5em; height: 2.5em;">One</div>
+            <div class="child-two child" style="width: 2.5em; height: 2.5em;">Two</div>
+            <div class="child-three child" style="width: 2.5em; height: 2.5em;">Three</div>
+            <div class="child-four child" style="width: 2.5em; height: 2.5em;">Four</div>
+            <div class="child-five child" style="width: 2.5em; height: 2.5em;">Five</div>
+        </div>
+
+        <div class="centered-comment" style="margin-top: 0.5em;">
+            Setting <span class="mono"> flex-flow: column; align-items: center; justify-content: space-between;</span> in the parent container.
+        </div>
+        <div class="parent" style="height: 20em; display: flex; flex-flow: column; align-items: center; justify-content: space-around;">
+            <div class="child-one child" style="width: 2.5em; height: 2.5em;">One</div>
+            <div class="child-two child" style="width: 2.5em; height: 2.5em;">Two</div>
+            <div class="child-three child" style="width: 2.5em; height: 2.5em;">Three</div>
+            <div class="child-four child" style="width: 2.5em; height: 2.5em;">Four</div>
+            <div class="child-five child" style="width: 2.5em; height: 2.5em;">Five</div>
+        </div>
+
+
+
+        <!--grid-->
         <div class="centered-text">
             <h3 class="mono" >display: grid</h3>
-            asdasdas
+            Based on the grid model.
+            The element behaves like a block element and lays out its content according to the grid model.
         </div>
 
+        <div class="centered-comment" style="margin-top: 0.5em;">
+            Using <span class="mono">grid-template-columns</span> and <span class="mono">grid-template-rows</span> 
+            aswell as <span class="mono">grid-column-gap</span> and <span class="mono">grid-row-gap</span>:
+        </div>
+        <div class="parent" style="display: grid;
+                grid-template-columns: 1fr 2fr 3fr;
+                grid-template-rows: 2fr 3fr;
+                grid-column-gap: 1em;
+                grid-row-gap: 2em;">
+            <div class="child-one child">One</div>
+            <div class="child-two child">Two</div>
+            <div class="child-three child">Three</div>
+            <div class="child-four child">Four</div>
+            <div class="child-five child">Five</div>
+        </div>
+        <div class="centered-comment" style="margin-top: 0.5em;">
+            Nesting grids into eachother:
+        </div>
+        <div class="parent" style="display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(3, 1fr);
+                grid-gap: 1em;">
+            <div class="child-one child">One</div>
+            <div class="child-two child">Two</div>
+            <div class="child-three child">Three</div>
+            <div class="child-four child">Four</div>
+            <div class="child-five child">Five</div>
+            <div>
+                <!--sub-grid-->
+                <div class="parent" style="display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    grid-template-rows: repeat(3, 1fr);
+                    grid-gap: 1em;">
+                    <div class="child-one child">Subgrid One</div>
+                    <div class="child-two child">Subgrid Two</div>
+                    <div class="child-three child">Subgrid Three</div>
+                    <div class="child-four child">Subgrid Four</div>
+                    <div class="child-five child">Subgrid Five</div>
+                    <div class="child-one child">Subgrid Six</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="centered-comment" style="margin-top: 0.5em;">
+            Using <span class="mono">justify-items</span> and <span class="mono">align-items</span> aswell as
+            <span class="mono">justify-self</span> for individual cells to place them differently:
+        </div>
+        <div class="parent" style="
+                height: 10em;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 1fr 1fr;
+                grid-gap: 1em;
+                justify-items: center;">
+            <div class="child-one child" style="justify-self: stretch;">One</div>
+            <div class="child-two child" style="justify-self: flex-start;">Two</div>
+            <div class="child-three child" style="justify-self: flex-end;">Three</div>
+            <div class="child-four child" style="align-self: flex-start;">Four</div>
+        </div>
+
+            
+        <div style="margin-bottom: 10em;"></div>
     </main>
 </body>
 </html>
