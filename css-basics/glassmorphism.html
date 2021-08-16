@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>glassmorphism</title>
+</head>
+
+<style>
+    body {
+    background: rgb(231, 231, 231);
+    color: black;
+    font-family:Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 14em 14em 14em 20em;
+}
+
+.circle {
+    position: absolute;
+    top: 200px;
+    left: 200px;
+    width: 400px;
+    height: 400px;
+    background: rgb(160, 59, 255);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.container {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 3em;
+    border-radius: 3em;
+    position: relative;
+    top: 5em;
+    z-index: 1;
+
+    /*the actual glass effect*/
+    backdrop-filter: blur(40px);
+    border: solid 2px transparent;
+    background-clip: padding-box;
+    box-shadow: 10px 10px 10px rgba(46, 54, 68, 0.03);
+}
+</style>
+
+<body>
+    <div class="circle"></div>
+    
+    <div class="container" id="glass">
+        <h2>Glassmorphism</h2>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi exercitationem veniam unde eveniet incidunt illum consectetur obcaecati nostrum inventore voluptate?</p>
+    </div>
+</body>
+</html>
