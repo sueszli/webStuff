@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation 0</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet">
+</head>
+
+<style>
+    :root {
+        --d: 30em; /*distance traveled*/
+        --b: 50%; /*border radius*/
+        --a: 1 /*toggle (0 or 1) for animations*/
+    }
+
+    body {
+        background: #333;
+    }
+
+    .box-zero {
+        background: white;
+        border-radius: var(--b) var(--b) var(--b) var(--b);
+        opacity: 90%;
+        width: 10em;
+        height: 10em;
+        position: relative;
+        
+        animation-name: zero;
+        animation-delay: 2s;
+        animation-duration: 3s;
+        animation-iteration-count: var(--a);
+        animation-timing-function: cubic-bezier(1, 0, 0, 1);
+    }
+    
+    .box-one {
+        background: white;
+        width: 10em;
+        height: 10em;
+
+        /*transition-property: background, transform;*/
+        transition-property: all;
+        transition-duration: 0.5s;
+    }
+
+    .box-one:hover {
+        background: paleturquoise;
+        transform: rotateZ(90deg);
+    }
+
+    .side-text {
+        font-family: 'Krona One', sans-serif;
+        color: white;
+        font-size: 12.6em;
+        font-weight: bold;
+        letter-spacing: -0.08em;
+
+        display: block;
+        position: relative;
+        top: -1.005em;
+        left: -5em;
+
+        animation-delay: 2s;
+        animation-name: one;
+        animation-duration: 1s;
+        animation-iteration-count: var(--a);
+        animation-fill-mode: forwards; /*stays the same after animation*/
+    }
+
+    @keyframes zero {
+        0% {
+            background-color: palegoldenrod;
+            left: 0em; top: 0em;
+            border-radius: 0 var(--b) var(--b) 0;
+        }
+        25% {
+            background-color: powderblue;
+            left: var(--d); top: 0em;
+            border-radius: 0 var(--b) var(--b) 0;
+        }
+        50% {
+            background-color: palegreen;
+            left: var(--d); top: var(--d);
+            border-radius: 0 0 var(--b) var(--b);
+        }
+        75% {
+            background-color: palevioletred;
+            left: 0em; top: var(--d);
+            border-radius: var(--b) 0 0 var(--b);
+        }
+        100% {
+            background-color: white;
+            left: 0em; top: 0em;
+            border-radius: var(--b) var(--b) var(--b) var(--b);
+        }
+    }
+    @keyframes one {
+        100% { left: 0.8em; }
+    }
+</style>
+
+<body>
+    <div class="box-zero"></div>
+    <div class="box-one"></div>
+    <span class="side-text">YAHYA</span>
+</body>
+</html>
