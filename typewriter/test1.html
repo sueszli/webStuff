@@ -5,8 +5,63 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TypeWriter</title>
+
+    <!-- tutorial : https://www.youtube.com/watch?v=39NZDe95_g0 -->
+    <!-- library source: https://github.com/mntn-dev/t.js -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="t.min.js"></script>
 </head>
+
+<style>
+    body {
+        padding: 180px 0 0 40px;
+        background: #101010;
+    }
+
+    pre {
+        color: tomato;
+        font-size: 32px;
+        font-family: monospace;
+        font-weight: bolder;
+    }
+
+    #tagline {
+        color: grey;
+        font-weight: 100;
+    }
+
+    #pow-txt {
+        display: none;
+        font-weight: 100;
+        color: #e3e3e3 !important;
+    }
+</style>
+
 <body>
-    
+    <pre id="main">
+    noodleConnoisseur:<ins><span id="pow-txt">---[no I dont]</span></ins>
+    <span id="tagline">
+    I really enjoy eating my noodles with soy sauce.
+    Don't ask me why, thats just the way I'm built, dude. <ins>1</ins>
+    Don't you eat your noodles with any sauce? <del id="pow-trigger"></del> <ins>1</ins>
+    Oh wait hold up you don't?
+    Ok - that was unexpected - I thought everyone does.
+    <br>
+    Alright. You do you.
+    </span>
+    </pre>
 </body>
+
+<script>
+    $('#main').t({
+        caret:'<span style="color:hotpink;">•</span>',
+        typing:function(elm,chr){
+
+        if(chr.match(/\-trigger/))
+            $('#pow-txt').show().delay(500).fadeOut(0);
+        
+    }
+});
+</script>
+
 </html>
