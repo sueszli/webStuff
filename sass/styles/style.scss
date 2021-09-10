@@ -1,0 +1,52 @@
+//variables
+$defaultColor: rgb(233, 234, 123);
+$hoverColor: rgb(242, 243, 203);
+$defaultFont: monospace;
+
+//functions
+@mixin flexCenter($direction) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+}
+
+* {
+    margin: 0rem;
+    padding: 0rem;
+}
+
+//nesting
+body {
+    background: black;
+    font-family: $defaultFont;
+    
+    header {
+        background: $defaultColor;
+        @include flexCenter(column);
+        padding: 1rem;
+        
+        h1 {
+            display: block;
+        }
+
+        #subtitle {
+            font-weight: 100;
+            color: #888;
+        }
+    
+        &:hover {
+            background-color: $hoverColor;
+        }
+    }
+    
+    .container {
+        color: white;
+        max-width: 1000px;
+        margin: auto;
+
+        .title {
+            font-weight: 800;
+        }
+    }
+}
